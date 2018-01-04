@@ -10,6 +10,7 @@ const uglify = require('rollup-plugin-uglify');
 const sourcemaps = require('rollup-plugin-sourcemaps');
 const nodeResolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
+const jsonfile = require('jsonfile');
 
 const inlineResources = require('./inline-resources');
 
@@ -122,6 +123,13 @@ return Promise.resolve()
     .then(() => _relativeCopy('README.md', rootFolder, distFolder))
     .then(() => console.log('Package files copy succeeded.'))
   )
+  // patch package json with scoped name;
+  .then(() => {
+    const path = './dist/package.json';
+    const packageJson = jsonfile.readFileSync(path);
+    packageJson.name = '@betadigitalproduction/' + packageJson.name;
+    jsonfile.writeFileSync(path, packageJson, { spaces: 2 });
+  })
   .catch(e => {
     console.error('\Build failed. See below for errors.\n');
     console.error(e);

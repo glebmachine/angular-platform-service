@@ -15,8 +15,8 @@
     "annotateForClosureCompiler": true,
     "strictMetadataEmit": true,
     "skipTemplateCodegen": true,
-    "flatModuleOutFile": "platform-service.js",
-    "flatModuleId": "platform-service",
+    "flatModuleOutFile": "ngx-platform-service.js",
+    "flatModuleId": "@betadigitalproduction/ngx-platform-service",
     "genDir": "../../out-tsc/lib-gen-dir/"
   }
 }
