@@ -1,6 +1,6 @@
 {
   "name": "ngx-platform-service",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Platfrom service, allows to properly manage server/client platform",
   "main": "./bundles/ngx-platform-service.umd.js",
   "module": "./ngx-platform-service.es5.js",
